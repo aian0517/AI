@@ -1,0 +1,19 @@
+@media (max-width:1080px){
+    .head-title{
+        font-size: 4rem;
+    }
+    .title{
+        font-size: 3.5rem;
+    }
+    .head-img{
+        height: 300px;
+    }
+    .abc .container-fluid{
+        margin-top: 100px;
+    }
+
+    .body1-btn,.body1-btn2,.body1-btn3,.body1-btn4{
+        width: 100px;
+        height: 100px;
+    }
+}
