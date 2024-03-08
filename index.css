@@ -1,0 +1,510 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: '微軟正黑體';
+    overflow-x: hidden;
+}
+:root{
+    --bg--color:#4760a5;
+    --bg--color2:#79ba78;
+    --body--bg:#fff;
+    --body--color:#000;
+
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.color{
+    color: var(--bg--color);
+}
+.color2{
+    color: var(--bg--color2);
+}
+.df{
+    display: flex;
+}
+.jcc{
+    justify-content: center;
+}
+.aic{
+    align-items: center;
+}
+.fdc{
+    flex-direction: column;
+}
+.jcb{
+    justify-content: space-between;
+}
+.jca{
+    justify-content: space-around;
+}
+.fw{
+    font-weight: bold;
+}
+.lep{
+    letter-spacing: 2px;
+}
+.lh{
+    line-height: 1.8;
+}
+.taj{
+    text-align: justify;
+}
+.title{
+    font-size: 3.5vw;
+}
+/* .rwd-wrap {
+    display: flex;
+    flex-direction: column;
+} */
+.blockes,
+.deco {
+    display: none !important;
+}
+.fs1{
+    font-size: 50px;
+}
+.fs2{
+    font-size: 45px;
+}
+.fs3{
+    font-size: 40px;
+}
+.fs4{
+    font-size: 36px;
+}
+.fs5{
+    font-size: 30px;
+}
+.fs6{
+    font-size: 26px;
+}
+.fs7{
+    font-size: 20px;
+}
+.fs8{
+    font-size: 18px;
+}
+
+
+
+
+
+/* nav */
+nav{
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: var(--bg--color);
+}
+
+
+
+/* header */
+header{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg--color);
+}
+.abc{
+    width: 95%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3.5rem;
+}
+.head-img{
+    width: 100%;
+    height: 85vh;
+    object-fit: cover;
+    border-radius: 15px;
+}
+/* .abc .carousel-item{
+    background: url(./images/head/head-bg.png) no-repeat center center/cover ;
+    transition: all .6s ease-in-out;
+}
+.abc .carousel-item:nth-child(2){
+    background: url(./images/head/1.svg) no-repeat center center/cover ;
+    transition: all .6s ease-in-out;
+} */
+
+/* .abc .active.carousel-item-start,.carousel-item-prev:not(.carousel-item-end){
+    transform:translate(50%,-100%) rotate(-90deg);
+    opacity: 0;
+    transform-origin: 200% center;
+}
+.abc .active.carousel-item-end,.carousel-item-next:not(.carousel-item-start){
+    transform:translate(-50%,100%) rotate(90deg);
+    opacity: 0;
+    transform-origin: 200% center;
+} */
+.head-prev .carousel-control-prev-icon{
+    background-image: url(./images/head/prev.svg);
+}
+.head-next .carousel-control-next-icon{
+    background-image: url(./images/head/next.svg);
+}
+.head-title{
+    font-size: 5vw;
+    color: #fff;
+}
+
+/* body1 */
+#body1{
+    background: url(./images/body1-bg.png) no-repeat center center/cover fixed;
+}
+.body1-btn,.body1-btn2,.body1-btn3,.body1-btn4{
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 20px;
+    color: #fff;
+    background-color: var(--bg--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+}
+.body1-card-img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.body1-card2{
+    width: 100%;
+    height: 450px;
+}
+.body1-card2-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* body2 */
+
+
+/* body3 */
+#body3{
+    position: relative;
+    height: 320vw;
+}
+.hori_absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hori1_deco1 {
+    position: absolute;
+    bottom: 0;
+    left: -2%;
+    background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-family: f1;
+    color: white;
+    height: 8rem;
+    width: 25rem;
+    z-index: 3;
+    box-shadow: var(--bxd);
+}
+
+.hori1_deco2 {
+    position: absolute;
+    top: 30%;
+    right: -5%;
+    background-color: var(--color1);
+    height: 10rem;
+    width: 12rem;
+    z-index: 3;
+    box-shadow: var(--bxd);
+}
+
+.hori1_deco3{
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    background-color: var(--color1);
+    border-radius: 25px;
+    height: 5px;
+    width: 10rem;
+    z-index: 3;
+    box-shadow: var(--bxd);
+
+}
+
+.hori2_deco1 {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: f1;
+    font-size: 12rem;
+    color: white;
+    opacity: 0.2;
+    text-shadow: var(--bxd);
+}
+
+.hori2_deco2 {
+    position: absolute;
+    bottom: 8%;
+    left: 42%;
+    font-family: f1;
+    font-size: 12rem;
+    color: white;
+    opacity: 0.2;
+    text-shadow: var(--bxd);
+}
+
+.hori2_deco3 {
+    position: absolute;
+    top: 8%;
+    right: -5%;
+    font-family: f1;
+    font-size: 12rem;
+    color: white;
+    opacity: 0.2;
+    text-shadow: var(--bxd);
+}
+
+#hori1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#hori2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 200vw;
+}
+
+.hori_fixed {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.7;
+    transition: 1.2s;
+}
+
+.hori_blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: 1.2s;
+}
+
+.fx .hori_fixed,
+.fx .hori_blur,
+.fx .hori_absolute {
+    position: fixed;
+}
+
+.b0 .hori_fixed,
+.b0 .hori_blur,
+.b0 .hori_absolute {
+    bottom: 0;
+    top: auto;
+}
+
+.hori2_outer {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    background: url(../圖片檔/A官方形象照/Official_Image1.jpg) center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50rem;
+    width: 100%;
+}
+
+.paint-brush svg {
+    font-size: 12rem;
+    margin-bottom: 2rem;
+}
+
+.paint-brush {
+    position: absolute;
+    top: 5%;
+    left: -10%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: .5s !important;
+}
+.dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.w-40 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 40vw;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    transition: .5s !important;
+}
+
+.hori2_title {
+    position: relative;
+    padding: 0 7rem;
+    z-index: 3;
+}
+
+.hori1_h1 {
+    font-size: 4rem;
+    font-family: f1;
+    color: white;
+}
+
+.hori1_h2 {
+    font-size: 2.6rem;
+    font-family: f1;
+    color: var(--color1);
+}
+
+.hori1_p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    width: 60%;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+.rc {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.blockes {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color1);
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+    font-size: 3rem;
+    height: 8rem;
+    width: 8rem;
+}
+
+.hori2_items {
+    width: 60%;
+}
+
+.hori2_img {
+    cursor: pointer;
+    position: relative;
+}
+
+.hori2_img::before {
+    content: '';
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(var(--color1), var(--color2));
+    transition: .5s;
+    opacity: 0;
+}
+
+.hori2_img::after {
+    content: '查看更多';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-family: f2;
+    color: white;
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(var(--color1), var(--color2));
+    transition: .5s;
+    opacity: 0;
+}
+
+.hori2_img:hover::after,
+.hori2_img:hover::before {
+    width: 100%;
+    opacity: 0.8;
+}
+
+.hori2_img img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hori2_brick {
+    border-radius: 25px;
+    background-color: var(--color1);
+    height: 5rem;
+    width: 5px;
+}
+
+.hori2_p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 1rem;
+    text-align: justify;
+    width: 100%;
+}
+
+
+
+/* body4 */
+
