@@ -5,45 +5,51 @@ const qa = document.querySelectorAll.bind(document)
 // body1
 
 var body1_swiper = new Swiper('.body1-swiper', {
-    slidesPerView: 'auto',
+    slidesPerView:3,
     spaceBetween: 10,
+    centeredSlides: true,
+    grabCursor: true,
     breakpoints: {
         1: {
             slidesPerView: 1.5,
-            centeredSlides: true,
         },
         1080: {
-            slidesPerView: 'auto',
+            slidesPerView: 3,
         },
     }
 })
 
-q('.body1-btn').addEventListener('click', () => {
-    q('.body1-body').innerHTML = ''
-})
 qa('.b').forEach(item => {
     item.addEventListener('click', (e) => {
         // console.log(e.target.id);
+        console.log(item);
         body1_click = e.target.id
+        // e.target.classList.remove('b-click')
+        
         body1_swiper.removeAllSlides()
-        body1_card_data[body1_click].forEach(i=>{
+        gsap.fromTo('.body1-swiper',{autoAlpha:0},{autoAlpha:1,duration:.5})
+        body1_card_data[body1_click].forEach(i => {
             body1_swiper.appendSlide(`
                 <div class="swiper-slide">
-                    <div class="card body1-card2">
-                        <img src="${i.img}" alt="" class="card-img-top body1-card2-img">
+                    <div class="card body1-card">
+                        <img src="${i.img}" alt="" class="card-img-top body1-card-img lightbox-click">
                         <div class="card-body">
-                            <h1 class="card-title fs5 text-center fw">${i.title}</h1>
-                            <p class="card-text lep taj fs8">${i.text}</p>
+                            <h1 class="card-title f4 text-center fw">${i.title}</h1>
+                            <p class="card-text lep taj f8">${i.text}</p>
                         </div>
                     </div>
                 </div>
                 `
             )
-                
         })
+        // b_click(e.target)
+        lightbox_click()
     })
 });
-
+// function b_click(){
+//     e.target.classList.remove('b-click')
+//     e.target.classList.add('b-click')
+// }
 
 
 
@@ -126,3 +132,117 @@ function set(v) {
     const hori3 = $("#body3").innerHeight() - $(window).innerWidth()
     $('.hori_absolute').css('transform', 'translateX(' + hori3 * v * -1 + 'px)')
 }
+
+
+
+
+// body5
+
+var body5_swiper = new Swiper('.body5-swiper', {
+    slidesPerView: 1.5,
+    centeredSlides: true,
+    spaceBetween: 10,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.body5-pagination',
+        clickable: true,
+    },
+    navigation: {
+        prevEl: '.body5-prev',
+        nextEl: '.body5-next',
+    }
+})
+
+
+var mess_data = []
+function mess_submit(e) {
+    if (q('.body5-right input').value != '') {
+        alert('留言已送出，已為您送到後端')
+        e.preventDefault()
+        mess_data.push({
+            name: q('.mess-name').value,
+            email: q('.mess-email').value,
+            text: q('.mess-text').value,
+        })
+        localStorage.setItem('mess-data', JSON.stringify(mess_data))
+        body4_swiper.appendSlide(`
+        <div class="swiper-slide">
+            <div class="forum">
+                <div>
+                    <h1 class="f5 fw lep color1 forum-name">${q('.mess-name').value}</h1>
+                    <p class="f7 text-end">${q('.mess-email').value}</p>
+                </div>
+                <div class="forum-content p-3">
+                    <p class="f7 m-0">
+                        ${q('.mess-text').value}
+                    </p>
+                </div>
+            </div>
+        </div>
+        `)
+        q('.mess-name').value = ''
+        q('.mess-email').value = ''
+        q('.mess-text').value = ''
+        location.href = '#body4'
+        body4_swiper.slideTo(body4_swiper.slides.length - 1, 0)
+        body4_swiper.autoplay.start()
+    }
+}
+window.addEventListener('load', () => {
+    var local_data = JSON.parse(localStorage.getItem('mess-data')) || []
+    local_data.forEach(item => {
+        body4_swiper.appendSlide(`
+        <div class="swiper-slide">
+            <div class="forum">
+                <div>
+                    <h1 class="f5 fw lep color1 forum-name">${item.name}</h1>
+                    <p class="f7 text-end">${item.email}</p>
+                </div>
+                <div class="forum-content p-3">
+                    <p class="f7 m-0">
+                        ${item.text}
+                    </p>
+                </div>
+            </div>
+        </div>
+        `)
+    })
+    mess_data = mess_data.concat(local_data)
+})
+
+
+// lightbox
+function lightbox_click(){
+    qa('.lightbox-click').forEach(item => {
+        item.addEventListener('click', (e) => {
+            console.log(1);
+            q('.lightbox-img').src = e.target.src
+            gsap.fromTo('.lightbox', { autoAlpha: 0 }, { autoAlpha: 1, duration: .3 })
+            q('.lightbox').style.display = 'flex'
+            document.body.style.overflowY = 'hidden'
+        })
+    })
+}
+q('.lightbox-x').addEventListener('click', () => {
+    gsap.to('.lightbox', {
+        autoAlpha: 0,
+        duration: .3,
+        onComplete: () => {
+            q('.lightbox').style.display = 'none'
+        }
+    })
+    document.body.style.overflowY = 'auto'
+})
+q('.lightbox').addEventListener('click', () => {
+    gsap.to('.lightbox', {
+        autoAlpha: 0,
+        duration: .3,
+        onComplete: () => {
+            q('.lightbox').style.display = 'none'
+        }
+    })
+    document.body.style.overflowY = 'auto'
+})
