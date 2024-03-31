@@ -7,11 +7,11 @@ const qa = document.querySelectorAll.bind(document)
 var body1_swiper = new Swiper('.body1-swiper', {
     slidesPerView:3,
     spaceBetween: 10,
-    centeredSlides: true,
     grabCursor: true,
     breakpoints: {
         1: {
             slidesPerView: 1.5,
+            centeredSlides: true,
         },
         1080: {
             slidesPerView: 3,
@@ -51,6 +51,26 @@ qa('.b').forEach(item => {
 //     e.target.classList.add('b-click')
 // }
 
+
+// body2
+
+var body2_swiper = new Swiper('.body2-swiper',{
+    slidesPerView:3,
+    spaceBetween: 10,
+    breakpoints: {
+        1: {
+            slidesPerView: 1.5,
+            centeredSlides: true,
+        },
+        1080: {
+            slidesPerView: 3,
+        },
+    },
+    navigation: {
+        prevEl: '.body2-swiper-prev',
+        nextEl: '.body2-swiper-next',
+    }
+})
 
 
 
@@ -108,7 +128,7 @@ $(window).on('scroll', function () {
         set(val)
     }
     if (win_w < 992) {
-        $('.hori_absolute').css('transform', 'translateX(0px)')
+        $('.body3_absolute').css('transform', 'translateX(0px)')
         $('#body3').removeClass('fx')
         $('#body3').removeClass('b0')
     }
@@ -130,7 +150,7 @@ function set(v) {
         v = 0
     }
     const hori3 = $("#body3").innerHeight() - $(window).innerWidth()
-    $('.hori_absolute').css('transform', 'translateX(' + hori3 * v * -1 + 'px)')
+    $('.body3_absolute').css('transform', 'translateX(' + hori3 * v * -1 + 'px)')
 }
 
 
@@ -168,11 +188,11 @@ function mess_submit(e) {
             text: q('.mess-text').value,
         })
         localStorage.setItem('mess-data', JSON.stringify(mess_data))
-        body4_swiper.appendSlide(`
+        body5_swiper.appendSlide(`
         <div class="swiper-slide">
             <div class="forum">
                 <div>
-                    <h1 class="f5 fw lep color1 forum-name">${q('.mess-name').value}</h1>
+                    <h1 class="f6 fw lep color1 forum-name">${q('.mess-name').value}</h1>
                     <p class="f7 text-end">${q('.mess-email').value}</p>
                 </div>
                 <div class="forum-content p-3">
@@ -186,19 +206,18 @@ function mess_submit(e) {
         q('.mess-name').value = ''
         q('.mess-email').value = ''
         q('.mess-text').value = ''
-        location.href = '#body4'
-        body4_swiper.slideTo(body4_swiper.slides.length - 1, 0)
-        body4_swiper.autoplay.start()
+        body5_swiper.slideTo(body5_swiper.slides.length - 1, 0)
+        body5_swiper.autoplay.start()
     }
 }
 window.addEventListener('load', () => {
     var local_data = JSON.parse(localStorage.getItem('mess-data')) || []
     local_data.forEach(item => {
-        body4_swiper.appendSlide(`
+        body5_swiper.appendSlide(`
         <div class="swiper-slide">
             <div class="forum">
                 <div>
-                    <h1 class="f5 fw lep color1 forum-name">${item.name}</h1>
+                    <h1 class="f6 fw lep color1 forum-name">${item.name}</h1>
                     <p class="f7 text-end">${item.email}</p>
                 </div>
                 <div class="forum-content p-3">
@@ -226,6 +245,7 @@ function lightbox_click(){
         })
     })
 }
+lightbox_click()
 q('.lightbox-x').addEventListener('click', () => {
     gsap.to('.lightbox', {
         autoAlpha: 0,
