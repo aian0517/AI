@@ -21,14 +21,15 @@ var body1_swiper = new Swiper('.body1-swiper', {
 
 qa('.b').forEach(item => {
     item.addEventListener('click', (e) => {
-        // console.log(e.target.id);
-        console.log(item);
         body1_click = e.target.id
         // e.target.classList.remove('b-click')
-        
         body1_swiper.removeAllSlides()
         gsap.fromTo('.body1-swiper',{autoAlpha:0},{autoAlpha:1,duration:.5})
         body1_card_data[body1_click].forEach(i => {
+            // console.log(i);
+            // if(i=1){
+            //     q('.body1-swiper .swiper-wrapper').classList.add('jcc')
+            // }
             body1_swiper.appendSlide(`
                 <div class="swiper-slide">
                     <div class="card body1-card">
@@ -71,6 +72,20 @@ var body2_swiper = new Swiper('.body2-swiper',{
         nextEl: '.body2-swiper-next',
     }
 })
+
+body2_data.forEach((item,index)=>{
+    body2_swiper.appendSlide(`
+        <div class="swiper-slide">
+            <div class="card body2-card">
+                <img src="${item.img}" alt="" class="card-img-top body2-img lightbox-click">
+                <div class="card-body">
+                    <h1 class="f6 fw card-title text-center">${item.title}</h1>
+                </div>
+            </div>
+        </div>
+    `)
+})
+
 
 
 
